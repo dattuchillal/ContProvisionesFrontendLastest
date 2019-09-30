@@ -14,7 +14,7 @@ export interface ResponseProvisionesAsscodas {
     key: {
       codigo: string;
       cod_sociedad: string;
-      periodo?: number;
+      periodo?: string;
     };
     timestamp?: number;
 }
@@ -22,7 +22,7 @@ export interface ResponseProvisionesAsscodas {
 export interface ProvisionesAsscodas {
   codigo_sap_expediente: string;
   cod_sociedad: string;
-  periodo?: number;
+  periodo?: string;
   timestamp?: number;
   codigo?: string;
 }

@@ -109,8 +109,10 @@ export class ProvisionesAsscoadasHomeComponent implements OnInit, OnDestroy {
           this.dataTab.paginator.firstPage();
         }
         this.dataSource.loadProvisionesData(data.content);
-        this.provisionesPeriodo = data && data.content.length ?
-                      moment(new Date(data.content[0].key.periodo)).format('MMMM DD, YYYY') : null;
+        if (data.content.length) {
+          const periodo = data.content[0].key.periodo;
+          this.provisionesPeriodo = moment(this.convertToDateFormat(periodo)).format('MMMM DD, YYYY');
+        }
         this.datalength = data.totalElements;
         this.loading = false;
       }
@@ -119,6 +121,11 @@ export class ProvisionesAsscoadasHomeComponent implements OnInit, OnDestroy {
       this.notificationService.setNotification(TranslationES.provisiones_contable.serviceUnAvailable);
     });
     this.dataTableSource = this.dataSource.getProvisionesData();
+  }
+
+  private convertToDateFormat(periodo: string) {
+    const date = periodo.split('/');
+    return new Date(date[1] + '/' + date[0] + '/' + date[2]);
   }
 
   requestPage(pageQuery: PageQuery) {
