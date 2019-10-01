@@ -23,10 +23,7 @@
             <div><u>PROCESOS</u></div>
             <ul class="nav nav-pills flex-column procesos-group">
                 <li class="nav-item">
-                    <a class="nav-link" [ngClass]="{active: isCierresActive}" routerLink="/cierres-contables" routerLinkActive="active">Cierres Contables</a>
-                </li>
-                <li class="nav-item" *ngIf="!isCierresActive">
-                  <a class="nav-link active" routerLinkActive="active">Provisiones Asociadas</a>
+                    <a class="nav-link" routerLink="/cierres-contables" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Cierres Contables</a>
                 </li>
             </ul>
           </li>
