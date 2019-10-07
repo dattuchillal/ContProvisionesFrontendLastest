@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', component: ProvisionesAsscoadasComponent, children: [
     { path: 'provisiones-asscoadas-home', component: ProvisionesAsscoadasHomeComponent },
     { path: 'provisiones-asscoadas-actions', component: ProvisionesAsscoadasActionsComponent,
-      data: { desc: 'Provisiones Asscoadas - Nuevo'} },
+      data: { desc: 'Provisiones Asociadas - Nuevo'} },
     { path: '', component: ProvisionesAsscoadasHomeComponent }
   ]}
 ];
