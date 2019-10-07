@@ -56,7 +56,7 @@ export class ProvisionesAsscoadasService {
   private readonly listAllUri = environment.provision_serverUrl + '/adif/list/';
   private readonly saveUri = environment.provision_serverUrl + '/adif/codigo';
   private readonly searchUri = environment.provision_serverUrl + '/adif/codigo/search/';
-  private readonly searchCodigoUri = environment.provision_serverUrl + '/adif/codigo/autosearch/';
+  private readonly searchCodigoUri = environment.provision_serverUrl + '/adif/codigo/autosearch';
   private readonly deleteCodigoUri = environment.provision_serverUrl + '/adif/codigo/delete';
   constructor(
     private http: HttpClient
@@ -79,7 +79,9 @@ export class ProvisionesAsscoadasService {
   }
 
   searchCodigo(search): Observable<Budget> {
-    return this.http.get<Budget>(this.searchCodigoUri + search);
+    return this.http.post<Budget>(this.searchCodigoUri, {
+      'codigo_sap_expediente': search
+    });
   }
 
   searchWithDate(data: SearchProvisiones): Observable<SearchProvisionesContent> {

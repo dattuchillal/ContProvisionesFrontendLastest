@@ -28,6 +28,7 @@
   </adif-data-table>
   <div class="row justify-content-center action-col">
     <div class="actions">
+        <button mat-stroked-button color="basic" class="mat-stroked-button" type="button" [routerLink]="'/cierres-contables'"><span>{{'Volver'}}</span></button>
         <button mat-stroked-button (click)="nuevo()">Nuevo</button>
         <button mat-stroked-button [disabled]="!dataSourceSelected" (click)="delete()">Borrar</button>
     </div>
